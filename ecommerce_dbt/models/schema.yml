@@ -1,0 +1,45 @@
+
+version: 2
+
+models:
+  - name: staging_clean_clicks
+    description: "Cleaning click raw data"
+    columns:
+      - name: clickid
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: staging_clean_custom_events
+    description: "Cleaning custom event raw data"
+    columns:
+      - name: customeventid
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: staging_clean_searches
+    description: "Cleaning search raw data"
+    columns:
+      - name: searchid
+        description: "Search id"
+        data_tests:
+          - not_null
+
+  - name: staging_clean_groups
+    description: "Cleaning group raw data"
+    columns:
+      - name: searchid
+        description: "Search id"
+        data_tests:
+          - not_null
+
+  - name: staging_clean_keywords
+    description: "Cleaning keyword raw data"
+    columns:
+      - name: searchid
+        description: "Search id"
+        data_tests:
+          - not_null

@@ -1,0 +1,14 @@
+{{ config(
+    materialized='table',
+    database='staging',
+    )
+
+  }}
+
+    SELECT DISTINCT
+          KEYWORDS.SEARCHID,
+          KEYWORDS.DATETIME,
+          INITCAP(IFF(KEYWORDS.KEYWORD = '', NULL, KEYWORDS.KEYWORD)) AS KEYWORD,
+          CURRENT_TIMESTAMP() AS INSERTION_DATETIME
+    FROM RAW.PRIVATE_EVENTS.KEYWORDS KEYWORDS
+
